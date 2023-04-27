@@ -5,79 +5,6 @@ const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
 const request = require('request');
 
-
-// const playerName = 'DyrachYO';
-// const apiUrl = `https://liquipedia.net/dota2/api.php?action=query&format=json&prop=revisions&rvprop=content&titles=${playerName}`;
-
-// const options = {
-//   url: apiUrl,
-//   headers: {
-//     'Accept-Encoding': 'gzip',
-//   },
-//   gzip: true,
-// };
-
-// request(options, (error, response, body) => {
-//     if (error) {
-//         console.log(`Error: ${error}`);
-//         return;
-//     }
-
-//     if (response.headers['content-encoding'] === 'gzip') {
-//       const data = JSON.parse(body);
-//       const pages = data.query.pages;
-//       const player = pages[Object.keys(pages)[0]];
-
-//       const wikitext = player.revisions[0]['*'];
-//       const imageMatch = wikitext.match(/\|\s*image\s*=\s*(.*)/);
-
-//       if (imageMatch && imageMatch[1]) {
-//         let imageName = imageMatch[1];
-//         imageName = imageName.replace(/\s+/g, '_');
-//         console.log(`Player image name: ${imageName}`);
-//         setTimeout(() => {
-//           const imageApiUrl = `https://liquipedia.net/commons/api.php?action=query&format=json&prop=imageinfo&titles=File:${imageName}&iiprop=url`;
-//           request({ url: imageApiUrl, gzip: true }, (error, response, body) => {
-//             if (error) {
-//               console.log(`Error: ${error}`);
-//               return;
-//             }
-
-//             const data = JSON.parse(body);
-//             const pages = data.query.pages;
-//             const imageInfo = pages[Object.keys(pages)[0]].imageinfo[0];
-//             const imageUrl = imageInfo.url;
-//             console.log(`Player image URL: ${imageUrl}`);
-//             // Do something with the image URL
-//           });
-//         }, 3000);
-//       } else {
-//         console.log(`No image found for player ${playerName}`);
-//       }
-//     } else {
-//       console.log(`Error: Server did not return a gzip-encoded response`);
-//     }
-// });
-
-
-
-const mongoose = require('mongoose')
-const db = mongoose.connection
-// mongoose.connect('mongodb://localhost:4000')
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://qewaru:17aezakmi@cluster0.9ohhtra.mongodb.net/?retryWrites=true&w=majority";
-
-async function connect() {
-    try {
-        await mongoose.connect(uri)
-        console.log("Connected to MongoDB")
-    } catch (error) {
-        console.log(error)
-    }
-}
-connect()
-
 app.use(express.static('public'))
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -111,7 +38,6 @@ app.post("/signup", (req, res) => {
 app.get("/signin", (req, res) => {
     var login = req.query.inlogin
     var password = req.query.inpassword
-    // console.log(login, password)
 
     db.collection("usersData").findOne({ "login": login }, (err, user) => {
         if (err) {
@@ -148,7 +74,7 @@ app.get("/teams", async function (req, res) {
         res.render('teams', { teamsData: [] })
     }
 })
-//<span><%= JSON.stringify(teamArray) %></span>
+
 app.get("/proteam", async function (req, res) {
     const teamName = req.query.proteam.toLowerCase()
 
@@ -383,34 +309,3 @@ const port = 4000
 app.listen(process.env.PORT || port, () => {
     console.log('Server started on port 4000')
 })
-
-// opendota api key - 6c3fd62e-92cf-4eb1-88f8-bdcd039eab5a
-// match id - 7099402332
-
-// <% matchData.picks_bans.map(hero => { %>
-//     <p><%= hero.hero_name %></p>
-// <% }); %>
-
-//<pre><%= JSON.stringify(matchData, null, 2) %></pre> 
-// <pre style="color: black"><%= JSON.stringify(matchData.players) %></pre>
-
-// const client = new MongoClient(uri, {
-//     serverApi: {
-//       version: ServerApiVersion.v1,
-//       strict: true,
-//       deprecationErrors: true,
-//     }
-//   });
-//   async function run() {
-//     try {
-//       // Connect the client to the server	(optional starting in v4.7)
-//       await client.connect();
-//       // Send a ping to confirm a successful connection
-//       await client.db("admin").command({ ping: 1 });
-//       console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//     } finally {
-//       // Ensures that the client will close when you finish/error
-//       await client.close();
-//     }
-//   }
-//   run().catch(console.dir);
