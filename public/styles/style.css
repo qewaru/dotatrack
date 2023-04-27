@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* ANIMATIONS 
+____________________________________________________*/
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-5%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* RESET STYLES 
+____________________________________________________*/
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: aliceblue;
+    background-color: #002d32;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+   
+button, input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+}
+
+input::placeholder {
+    color: rgba(240, 248, 255, 0.5);
+}
+
+/* PLAYER BOX 
+____________________________________________________*/
+
+.box-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    max-height: 800px;
+    /* border: solid 5px black; */
+}
+
+.card-player {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50%);
+    width: 80%;
+    max-width: 600px;
+    height: 100%;
+    border-radius: 40px;
+    background-color: aliceblue;
+    color: aliceblue;
+    /* border: solid 5px aliceblue; */
+}
+
+.img-player {
+    border-radius: 30px;
+    place-self: center;
+    width: 70%;
+    max-width: 370px;
+    height: 80%;
+}
+
+.box-info {
+    display: flex;
+    flex-wrap: wrap;
+    place-self: center;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    border-radius: 30px 30px 0 0;
+    background-color: #006469;
+}
+
+.box-info > .container {
+    margin: 15px;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    font-weight: 600;
+}
+
+/* ERROR BOX 
+____________________________________________________*/
+
+.error-title, .error-text {
+    color: black;
+    place-self: center;
+}
+
+.error-title {
+    align-self: end;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.error-text {
+    margin-top: 5%;
+    align-self: start;
+    font-size: 25px;
+}
+
+/* MEDIA QUERIES 
+____________________________________________________*/
+
+@media screen and (max-width: 400px) {
+    .box-info {
+        overflow: visible;
+    }
+}

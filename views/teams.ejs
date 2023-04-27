@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <script src="/scripts/script.js" async></script>
+    <title>ProTeam | <%= teamArray.name %></title>
+</head>
+<body>
+    <section class="box-player">
+        <div class="card-player">
+            <img src="/images/blank_profile.png" alt="player-photo" class="img-player">
+            <div class="box-info">
+                <div class="box-player-name container">
+                    <span class="player-name title">Team name: </span>
+                    <%= teamArray.name %>
+                </div>
+                <div class="box-team-name container">
+                    <span class="player-team-name title">Team tag: </span>
+                    <%= teamArray.tag %>
+                </div>
+                <div class="box-role container">
+                    <span class="player-role title">Wins/Loses: </span>
+                    <%= teamArray.wins %> <span> / </span> <%= teamArray.loses %>
+                </div>
+                <div class="box-player-steamname container">
+                    <span class="player-steamname title">Rating: </span>
+                    <%= teamArray.rating %>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

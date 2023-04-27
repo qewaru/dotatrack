@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* ANIMATIONS 
+____________________________________________________*/
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-5%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* RESET STYLES 
+____________________________________________________*/
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 45% 55%;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: aliceblue;
+    background-color: #002d32;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+   
+button, input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+}
+
+input::placeholder {
+    color: rgba(240, 248, 255, 0.5);
+}
+
+/* TOP BAR
+____________________________________________________*/
+
+.top-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+}
+
+.logo-txt {
+    font-weight: 600;
+    font-size: 8rem;
+}
+
+.bottom-text {
+    font-size: 1.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* .img-logo {
+    width: 90%;
+    max-width: 1200px;
+} */
+
+/* SEARCH BAR
+____________________________________________________*/
+
+.search-bar {
+    grid-row: 2;
+    /* grid-column: 1; */
+    display: flex;
+    flex-direction: row;
+    align-self: start;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 60px;
+}
+
+.btn-previous-bar, .btn-next-bar{
+    width: 15%;
+}
+
+.img-previous, .img-next {
+    width: 30px;
+}
+
+.form-search-player, .form-search-team {
+    display: none;
+    flex-direction: row;
+    background-color: #006469;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.active {
+    display: flex;
+    animation: fadeInRight 0.3s ease-in;
+}
+
+.input-proplayer, .input-proteam {
+    color: aliceblue;
+    margin-left: 5%;
+    width: 80%;
+    font-size: 20px;
+}
+
+.btn-searchpro-submit, .btn-searchteam-submit {
+    width: 20%;
+}
+
+.img-search {
+    place-self: center;
+    width: 30px;
+}

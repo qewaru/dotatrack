@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <script src="scripts/script.js" async></script>
+    <title>DotaTrack</title>
+</head>
+<body>
+    <header class="top-bar">
+        <span class="logo-txt">DotaTrack</span>
+        <span class="bottom-text">Search for any ProPlayer and ProTeam</span>
+        <!-- <img class="img-logo" src="images/dotatrack_logo.png"> -->
+    </header>
+    <section class="search-bar">
+        <button class="btn-previous-bar">
+            <img class="img-previous" src="images/icon-left-arrow.png">
+        </button>
+        <form class="form-search-player active" action="/proplayers"  method="get">
+            <input type="text" class="input-proplayer" name="proname" placeholder="Search ProPlayer...">
+            <button type="submit" class="btn-searchpro-submit">
+                <img class="img-search" src="images/icon-search.png">
+            </button>
+        </form>
+        <form class="form-search-team " action="/proteam"  method="get">
+            <input type="text" class="input-proteam" name="proteam" placeholder="Search ProTeam...">
+            <button type="submit" class="btn-searchteam-submit">
+                <img class="img-search" src="images/icon-search.png">
+            </button>
+        </form>
+        <button class="btn-next-bar">
+            <img class="img-next" src="images/icon-right-arrow.png">
+        </button>
+    </section>
+</body>
+</html>

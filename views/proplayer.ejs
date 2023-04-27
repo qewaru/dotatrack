@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <script src="/scripts/script.js" async></script>
+    <title>ProPlayer | <%= playerArray.name %></title>
+</head>
+<body>
+    <section class="box-player">
+        <div class="card-player">
+            <img src="/images/blank_profile.png" alt="player-photo" class="img-player">
+            <div class="box-info">
+                <div class="box-player-name container">
+                    <span class="player-name title">Ingame name: </span>
+                    <%= playerArray.name %>
+                </div>
+                <div class="box-team-name container">
+                    <span class="player-team-name title">Team name: </span>
+                    <%= playerArray.team_name %>
+                </div>
+                <div class="box-role container">
+                    <span class="player-role title">Ingame role: </span>
+                    <% if (playerArray.role == 1) { %>
+                        <span>Carry (POS 1)</span>
+                    <% } else if (playerArray.role == 2) { %>
+                        <span>Solo Middle (POS 2)</span>
+                    <% } else if (playerArray.role == 3) { %>
+                        <span>Offlane (POS 3)</span>
+                    <%}  else if (playerArray.role == 4) { %>
+                        <span>Semi-support (POS 4)</span>
+                    <% } else if (playerArray.role == 5) { %>
+                        <span>Support (POS 5)</span>
+                    <% } %>
+                </div>
+                <div class="box-player-steamname container">
+                    <span class="player-steamname title">Steam name: </span>
+                    <%= playerArray.steamname %>
+                </div>
+                <div class="box-player-profile container">
+                    <span class="player-profile title">Steam profile: </span>
+                    <a href=" <%= playerArray.profile_url %> "><%= playerArray.profile_url %></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!-- https://liquipedia.net/dota2/File:Dyrachyo_2023_Gaimin_Gladiators.png -->
+<!-- roles: 1=carry, 2=sup4,  -->

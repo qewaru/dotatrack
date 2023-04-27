@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <title>Result</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="post-wrapper">
+            <div class="block info-match">
+                <h1>Match information:</h1>
+                <p>Match ID: <%= matchData.match_id %></p>
+                <p>Match duration: <%= formatDuration(matchData.duration) %></p>
+            </div>
+            <div class="block info-ingame">
+                <h1>Ingame information:</h1>
+                <div class="list-grid-sides">
+                    <% if (matchData.radiant_win == true) { %>
+                    <p class="text-win">Radiant won</p>
+                    <% } else {%>
+                    <p class="text-win">Dire won</p>
+                    <% } %>
+                    <p class="text-score">Dire score: <%= matchData.dire_score %></p>
+                    <p class="text-score">Radiant score: <%= matchData.radiant_score %></p>
+                </div>
+                <div class="list-players-usernames">
+                    <h2>Players:</h2>
+                    <div class="grid-players">
+                        <% matchData.players.map(player => { %>
+                            <% if (player.personaname === null) { %>
+                                <p class="players-usernames">No data</p>
+                            <% } else { %>
+                                <p class="players-usernames"><%= player.personaname %></p>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="list-grid-heroes">
+                    <h2>Heroes:</h2>
+                    <div class="block-radiant">
+                        <h3>Radiant -</h3>
+                        <div class="wrapper-list-heroes">
+                            <% matchData.picks_bans.forEach(hero => {
+                                if (hero.hasOwnProperty('hero_name') && hero.action_type === 'picked' && hero.team === 0) { %>
+                                    <div class="block-hero">
+                                        <img class="image-hero-icon" src="https://api.opendota.com<%= hero.hero_icon %>">
+                                        <p class="text-hero-name"><%= hero.hero_name %></p>
+                                    </div>
+                                <% }
+                             }); %>
+                        </div>
+                    </div>
+                    <div class="block-dire">
+                        <h3>Dire -</h3>
+                        <div class="wrapper-list-heroes">
+                            <% matchData.picks_bans.forEach(hero => {
+                            if (hero.hasOwnProperty('hero_name') && hero.action_type === 'picked' && hero.team === 1) { %>
+                            <div class="block-hero">
+                                <img class="image-hero-icon" src="https://api.opendota.com<%= hero.hero_icon %>">
+                                <p class="text-hero-name"><%= hero.hero_name %></p>
+                            </div>
+                        <% }
+                        }); %>
+                        </div>
+                    </div>
+                    <div class="block-banned">
+                        <h3>Banned -</h3>
+                        <div class="wrapper-list-heroes">
+                            <% matchData.picks_bans.forEach(hero => {
+                            if (hero.hasOwnProperty('hero_name') && hero.action_type === 'banned') { %>
+                            <div class="block-hero">
+                                <img class="image-hero-icon" src="https://api.opendota.com<%= hero.hero_icon %>">
+                                <p class="text-hero-name"><%= hero.hero_name %></p>
+                            </div>
+                            <% }
+                        }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

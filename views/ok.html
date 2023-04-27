@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+    <script src="scripts/script.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-section">
+        <div class="header-grid">
+            <img class="img-logosign" src="../public/images/dotatrack_logo.png" alt="dotatracklogo">
+            <a class="link-fromindex" href="#"><p>Teams</p></a>
+            <a class="link-fromindex" href="#"><p>Players</p></a>
+            <a class="link-fromindex" href="#"><p>Matches</p></a>
+            <a class="link-fromindex login-link" href="#"><p>Log in</p></a>
+        </div>
+    </header>
+    <section class="section">
+        <div class="main-wrapper-grid">
+<!-- <div class="search-bar">
+            <span>Search...</span>
+        </div>
+        <div class="btns-box">
+            <button class="btn-search-selection btn-players">Players</button>
+            <button class="btn-search-selection btn-teams">Teams</button>
+        </div>
+        <form class="form-search-player" action="/proplayers"  method="get"style="margin: 5%;  margin-top: 0;">
+            <input type="text" class="input-proplayer" name="proname">
+            <button type="submit" class="btn-searchpro-submit">Submit</button>
+        </form> -->
+        <form class="form-teams search" action="/players" method="get">
+            <div class="plate teams-box">
+
+            </div>
+        </form>
+        <form class="form-players search" action="/players" method="get">
+            <div class="plate players-box">
+
+            </div>
+        </form>
+        <form class="form-matches search" action="/players" method="get">
+            <div class="plate matches-box">
+            </div>
+        </form>
+        </div>
+    </section>
+    <section style="height: 30%;">
+
+    </section>
+</body>
+</html>
