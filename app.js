@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
-const signupRouter = require("./routes/signup")
 const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
-const request = require('request');
 
 app.use(express.static('public'))
 app.use(express.static(__dirname + '/public'));
@@ -12,67 +10,6 @@ app.set('view engine', 'ejs')
 
 app.get("/", (req, res) => {
     res.render('index')
-})
-
-app.post("/signup", (req, res) => {
-    var login = req.body.login
-    var password = req.body.password
-    var username = req.body.username
-    console.log(login, password, username)
-
-    var userData = {
-        "login": login,
-        "password": password,
-        "username": username
-    }
-
-    db.collection("usersData").insertOne(userData, (error, collection) => {
-        if(error) {
-            throw error
-        }
-        console.log("Userdata saved")
-    })
-    res.render('index')
-})
-
-app.get("/signin", (req, res) => {
-    var login = req.query.inlogin
-    var password = req.query.inpassword
-
-    db.collection("usersData").findOne({ "login": login }, (err, user) => {
-        if (err) {
-            throw err
-        }
-        if (user) {
-            console.log("login correct")
-            if (user.password === password) {
-                console.log("password correct")
-                res.render('index')
-            } else {
-                console.log("password incorrect")
-                res.render('index')
-            }
-        } else {
-            console.log("doesn't exist")
-            res.render('index')
-        }
-    })
-})
-
-app.get("/teams", async function (req, res) {
-    try {
-        const response = await axios.get(`https://api.opendota.com/api/teams`)
-        const teamsData = response.data
-        let teamArray = []
-        teamsData.forEach(team => {
-            let teamNickname = team.name
-            teamArray.push({name: teamNickname})
-        })
-        res.render('teams', { teamArray })
-    } catch (error) {
-        console.log(error)
-        res.render('teams', { teamsData: [] })
-    }
 })
 
 app.get("/proteam", async function (req, res) {
