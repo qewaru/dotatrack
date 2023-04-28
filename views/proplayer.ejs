@@ -5,49 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="images/incon.svg" type="image/svg+xml">
     <script src="/scripts/script.js" async></script>
     <title>ProPlayer | <%= playerArray.name %></title>
 </head>
 <body>
     <section class="box-player">
         <div class="card-player">
+            <form class="form-tohome" action="/" method="get">
+                <button class="btn-tohome" type="submit">
+                    <img class="img-btn-tohome" src="/images/icon-close-blue.png">
+                </button>
+            </form>
             <img src="/images/blank_profile.png" alt="player-photo" class="img-player">
             <div class="box-info">
                 <div class="box-player-name container">
                     <span class="player-name title">Ingame name: </span>
-                    <%= playerArray.name %>
+                    <span class="player-name text"><%= playerArray.name %></span>
                 </div>
                 <div class="box-team-name container">
                     <span class="player-team-name title">Team name: </span>
-                    <%= playerArray.team_name %>
+                    <span class="player-team-name text"><%= playerArray.team_name %></span>
                 </div>
                 <div class="box-role container">
                     <span class="player-role title">Ingame role: </span>
                     <% if (playerArray.role == 1) { %>
-                        <span>Carry (POS 1)</span>
+                        <span class="player-role text">Carry (POS 1)</span>
                     <% } else if (playerArray.role == 2) { %>
-                        <span>Solo Middle (POS 2)</span>
+                        <span class="player-role text">Solo Middle (POS 2)</span>
                     <% } else if (playerArray.role == 3) { %>
-                        <span>Offlane (POS 3)</span>
+                        <span class="player-role text">Offlane (POS 3)</span>
                     <%}  else if (playerArray.role == 4) { %>
-                        <span>Semi-support (POS 4)</span>
+                        <span class="player-role text">Semi-support (POS 4)</span>
                     <% } else if (playerArray.role == 5) { %>
-                        <span>Support (POS 5)</span>
+                        <span class="player-role text">Support (POS 5)</span>
                     <% } %>
                 </div>
                 <div class="box-player-steamname container">
                     <span class="player-steamname title">Steam name: </span>
-                    <%= playerArray.steamname %>
+                    <span class="player-steamname text"><%= playerArray.steamname %></span>
                 </div>
                 <div class="box-player-profile container">
                     <span class="player-profile title">Steam profile: </span>
-                    <a href=" <%= playerArray.profile_url %> "><%= playerArray.profile_url %></a>
+                    <span class="player-profile text"><a class="steam-link" href=" <%= playerArray.profile_url %> " target="_blank">Steam Link</a></span>
                 </div>
             </div>
         </div>
     </section>
 </body>
 </html>
-
-<!-- https://liquipedia.net/dota2/File:Dyrachyo_2023_Gaimin_Gladiators.png -->
-<!-- roles: 1=carry, 2=sup4,  -->
