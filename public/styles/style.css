@@ -59,18 +59,16 @@ input::placeholder {
 /* PLAYER BOX 
 ____________________________________________________*/
 
-.box-player {
+.box-player, .box-team {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80%;
     max-width: 800px;
     height: 80%;
-    max-height: 800px;
-    /* border: solid 5px black; */
 }
 
-.card-player {
+.card-player, .card-team {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, 50%);
@@ -80,15 +78,38 @@ ____________________________________________________*/
     border-radius: 40px;
     background-color: aliceblue;
     color: aliceblue;
-    /* border: solid 5px aliceblue; */
+    box-shadow: 0px 0px 20px 0px #000e0f;
 }
 
-.img-player {
+.form-tohome {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-self: flex-end;
+    margin: 4%;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-tohome {
+    width: 100%;
+    height: 100%;
+}
+
+.img-btn-tohome {
+    width: 100%;
+    height: 100%;
+}
+
+.img-player, .img-team {
+    display: flex;
+    grid-row: 1;
+    grid-column: 1;
     border-radius: 30px;
     place-self: center;
-    width: 70%;
-    max-width: 370px;
-    height: 80%;
+    width: 65%;
+    max-width: 350px;
+    aspect-ratio: 1/1;
 }
 
 .box-info {
@@ -103,12 +124,16 @@ ____________________________________________________*/
 }
 
 .box-info > .container {
-    margin: 15px;
+    margin: 3%;
 }
 
 .container {
-    width: 100%;
-    height: auto;
+    align-self: center;
+    width: 90%;
+}
+
+.steam-link {
+    text-decoration: underline;
 }
 
 .title {
@@ -119,6 +144,8 @@ ____________________________________________________*/
 ____________________________________________________*/
 
 .error-title, .error-text {
+    grid-row: 1;
+    grid-column: 1;
     color: black;
     place-self: center;
 }
@@ -130,6 +157,7 @@ ____________________________________________________*/
 }
 
 .error-text {
+    grid-row: 2;
     margin-top: 5%;
     align-self: start;
     font-size: 25px;
@@ -138,8 +166,25 @@ ____________________________________________________*/
 /* MEDIA QUERIES 
 ____________________________________________________*/
 
-@media screen and (max-width: 400px) {
-    .box-info {
-        overflow: visible;
+@media screen and (400px >= width) {
+    .top-bar {
+        
+    }
+    
+    .title, .text {
+        font-size: 0.75rem;
+    }
+
+}
+
+@media screen and (700px >= width >= 400px) {
+    .img-player, .img-team {
+        max-width: 250px;
+    }
+}
+
+@media screen and (width >= 700px) {
+    .img-player, .img-team {
+        max-width: 275px;
     }
 }
