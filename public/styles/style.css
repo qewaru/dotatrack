@@ -86,7 +86,7 @@ ____________________________________________________*/
     grid-column: 1;
     display: flex;
     justify-self: flex-end;
-    margin: 4%;
+    margin: 5%;
     width: 20px;
     height: 20px;
 }
@@ -158,8 +158,9 @@ ____________________________________________________*/
 
 .error-text {
     grid-row: 2;
-    margin-top: 5%;
+    margin: 5%;
     align-self: start;
+    text-align: center;
     font-size: 25px;
 }
 
@@ -167,19 +168,31 @@ ____________________________________________________*/
 ____________________________________________________*/
 
 @media screen and (400px >= width) {
-    .top-bar {
-        
-    }
-    
     .title, .text {
         font-size: 0.75rem;
     }
 
+    .error-title {
+        font-size: 30px;
+    }
+    
+    .error-text {
+        font-size: 15px;
+    }
+    
 }
 
 @media screen and (700px >= width >= 400px) {
     .img-player, .img-team {
         max-width: 250px;
+    }
+
+    .error-title {
+        font-size: 30px;
+    }
+    
+    .error-text {
+        font-size: 20px;
     }
 }
 

@@ -142,6 +142,20 @@ ____________________________________________________*/
 /* MEDIA QUERIES 
 ____________________________________________________*/
 
+@media screen and (400px >= width) {
+    .logo-txt {
+        font-size: 2.5rem;
+    }
+    
+    .bottom-text {
+        font-size: 0.75rem;
+    }
+
+    .input-proplayer, .input-proteam {
+        font-size: 15px;
+    }
+}
+
 @media screen and (400px >= width >= 300px) {
     .logo-txt {
         font-size: 2.5rem;
