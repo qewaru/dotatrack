@@ -15,12 +15,18 @@ On the index page, users can switch between two search bars to find information 
 * Zlib
 * Mongoose
 
+## Features
+* Search for any team and player: users are able to find information about any proffesional team or player from huge list.
+* OpenDota API: it provides tons of detalied information
+
 ## Future updates
 In the future, I plan to add couple of updates to dotatrack:
 
 * Account system: users will be able create their own account and profile "card".
 * User search bar: based on the account system update, users will be able to search for their or other users DoTa 2 profiles.
 * Match search bar: users can find any match ID (generated in-game) and search for match data on website.
+### Bugs to fix
+CSS: on some devices player and team "cards" display incorrectly
 
 ## Current link
 
