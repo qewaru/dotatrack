@@ -29,5 +29,5 @@ In the future, I plan to add couple of updates to dotatrack:
 CSS: on some devices player and team "cards" display incorrectly
 
 ## Current link
-
+**Due to hosting platform issues, when website is opened in first time, it may took couple of seconds to load index page.** 
 [dotatrack.onrender.com](https://dotatrack.onrender.com)
